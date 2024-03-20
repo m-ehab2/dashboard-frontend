@@ -9,7 +9,7 @@ function App() {
       <Grid item md={2}>
         <Sidebar />
       </Grid>
-      <Grid item md={10}>
+      <Grid sx={{ backgroundColor: "#F7F7F7" }} item md={10}>
         <Status />
       </Grid>
     </Grid>
