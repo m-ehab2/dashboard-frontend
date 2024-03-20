@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import withAuth from "./components/requireAuth";
 import Status from "./components/dashboard/main/Status";
 import Sidebar from "./components/dashboard/sidebar/Sidebar";
+import Hero from "./components/dashboard/main/Hero";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       </Grid>
       <Grid sx={{ backgroundColor: "#F7F7F7" }} item md={10}>
         <Status />
+        <Hero />
       </Grid>
     </Grid>
   );
