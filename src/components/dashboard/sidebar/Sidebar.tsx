@@ -1,5 +1,4 @@
 import { Box, Stack, Typography } from "@mui/material";
-import React from "react";
 import "@fontsource/inria-sans/700.css";
 import {
   FaBook,
@@ -63,7 +62,7 @@ export default function Sidebar() {
           gap={"20px"}
           sx={{
             backgroundColor: "white",
-            padding: "0px 30px",
+            padding: "0px 10%",
             color: "#52CAC3",
             height: "70px",
             cursor: "pointer",

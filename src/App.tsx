@@ -9,17 +9,17 @@ import Announcements from "./components/dashboard/main/announcments/Announcement
 function App() {
   return (
     <Grid sx={{ height: "100%" }} container>
-      <Grid item md={2}>
+      <Grid item md={2} sx={{ display: { md: "block", xs: "none" } }}>
         <Sidebar />
       </Grid>
-      <Grid sx={{ backgroundColor: "#F7F7F7" }} item md={10}>
+      <Grid sx={{ backgroundColor: "#F7F7F7" }} item md={10} xs={12}>
         <Status />
         <Hero />
-        <Grid container sx={{ padding: "10px 20px" }}>
-          <Grid sx={{ paddingRight: "20px" }} item md={9}>
+        <Grid container sx={{ padding: "10px 20px" }} spacing={2}>
+          <Grid item md={9} xs={12}>
             <Announcements />
           </Grid>
-          <Grid item md={3}>
+          <Grid item md={3} xs={12}>
             <Quizzes />
           </Grid>
         </Grid>

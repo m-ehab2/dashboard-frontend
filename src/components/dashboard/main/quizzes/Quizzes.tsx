@@ -1,8 +1,15 @@
-import { Box, Button, Divider, Typography } from "@mui/material";
-import React from "react";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Divider,
+  Typography,
+} from "@mui/material";
 import OneQuiz from "./OneQuiz";
+import useFetchTodos from "../../../../hooks/useFetchTodos";
 
 export default function Quizzes() {
+  const { todos, loading, error } = useFetchTodos();
   return (
     <Box
       sx={{
@@ -33,7 +40,7 @@ export default function Quizzes() {
         color={"#626866"}
         fontWeight={"600"}
       >
-        Announcements
+        What's due
       </Typography>
       <Typography
         fontFamily={"Inter"}
@@ -51,11 +58,38 @@ export default function Quizzes() {
           marginTop: "10px",
         }}
       >
-        <OneQuiz />
-        <Divider sx={{ margin: "10px" }} />
-        <OneQuiz />
-        <Divider sx={{ margin: "10px" }} />
-        <OneQuiz />
+        {loading ? (
+          <Box
+            sx={{
+              display: "flex",
+              height: "100px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CircularProgress
+              sx={{ display: "flex", justifyContent: "center" }}
+            />
+          </Box>
+        ) : error ? (
+          "Error Occurred Fetching Data"
+        ) : (
+          todos.map((todo) => (
+            <>
+              <OneQuiz
+                key={todo._id}
+                title={todo.title}
+                course={todo.course}
+                topic={todo.topic}
+                due={todo.due}
+                status={todo.status}
+                type={todo.type}
+                _id={todo._id}
+              />{" "}
+              <Divider sx={{ margin: "10px" }} />
+            </>
+          ))
+        )}{" "}
       </Box>
     </Box>
   );
