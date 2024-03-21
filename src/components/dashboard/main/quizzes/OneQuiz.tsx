@@ -1,21 +1,30 @@
 import { Box, Button, Typography } from "@mui/material";
-import React from "react";
 import { FaHourglassHalf } from "react-icons/fa";
+import { todoData } from "../../../../hooks/useFetchTodos";
+import { TbClipboardCheck } from "react-icons/tb";
+import moment from "moment";
 
-export default function OneQuiz() {
+export default function OneQuiz({ course, due, title, topic, type }: todoData) {
   return (
     <Box>
       <Box sx={{ display: "flex", alignItems: "center", margin: "5px" }}>
-        <FaHourglassHalf
-          style={{ color: "#52CAC3", flexShrink: 0, fontSize: "20px" }}
-        />
+        {type === "exam" ? (
+          <FaHourglassHalf
+            style={{ color: "#52CAC3", flexShrink: 0, fontSize: "20px" }}
+          />
+        ) : null}
+        {type === "assignment" ? (
+          <TbClipboardCheck
+            style={{ color: "#52CAC3", flexShrink: 0, fontSize: "25px" }}
+          />
+        ) : null}
         <Typography
           fontFamily={"Inter"}
           fontSize={"16px"}
           color={"#626866"}
           fontWeight={"600"}
         >
-          Unit 2 quiz
+          {title}
         </Typography>
       </Box>
       <Typography
@@ -24,7 +33,7 @@ export default function OneQuiz() {
         color={"#626866"}
         fontWeight={"300"}
       >
-        Course : Physics 02
+        Course : {course}
       </Typography>
       <Typography
         fontFamily={"Inter"}
@@ -32,7 +41,7 @@ export default function OneQuiz() {
         color={"#626866"}
         fontWeight={"300"}
       >
-        Topic : Unit 2:Motion and forces
+        Topic : {topic}
       </Typography>
       <Typography
         fontFamily={"Inter"}
@@ -40,7 +49,7 @@ export default function OneQuiz() {
         color={"#626866"}
         fontWeight={"300"}
       >
-        Course : Physics 02
+        Due : {moment(due).fromNow()}
       </Typography>
       <Button
         sx={{
@@ -55,7 +64,7 @@ export default function OneQuiz() {
         fullWidth
         variant="outlined"
       >
-        Start Quiz
+        Start {type}
       </Button>
     </Box>
   );
