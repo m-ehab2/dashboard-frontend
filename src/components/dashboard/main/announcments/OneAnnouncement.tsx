@@ -20,6 +20,8 @@ export default function OneAnnouncement({
         margin: "10px 0px",
         gap: "10px",
         alignItems: "start",
+        // justifyContent: "space-between",
+        flexDirection: { md: "row", xs: "column" },
       }}
     >
       <Box
@@ -27,29 +29,25 @@ export default function OneAnnouncement({
           display: "flex",
           alignItems: "center",
           gap: "5px",
+          justifyContent: "start",
+          minWidth: "20%",
         }}
       >
         <Avatar src={img} />
-        <Box sx={{ flexGrow: "1" }}>
-          <Typography
-            noWrap
-            fontFamily={"Inter"}
-            fontWeight={"600"}
-            color={"#4f4f4f"}
-          >
+        <Box>
+          <Typography fontFamily={"Inter"} fontWeight={"600"} color={"#4f4f4f"}>
             {name}
           </Typography>
-          <Typography
-            noWrap
-            fontFamily={"Inter"}
-            fontWeight={"300"}
-            color={"#7B7D7C"}
-          >
+          <Typography fontFamily={"Inter"} fontWeight={"300"} color={"#7B7D7C"}>
             {subject}
           </Typography>
         </Box>
       </Box>
-      <Divider orientation="vertical" flexItem variant="middle" />
+      <Divider
+        orientation="vertical"
+        flexItem
+        // variant="middle"
+      />
       <Box>
         <Typography fontFamily={"Inter"} fontWeight={"300"} color={"#7B7D7C"}>
           {text}
