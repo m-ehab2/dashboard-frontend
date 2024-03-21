@@ -12,6 +12,7 @@ import {
 import { FaSearch, FaBell, FaEnvelope } from "react-icons/fa";
 
 import profileImage from "../../../assets/marissa-lewis-47bVgRJ3bFI-unsplash.jpg";
+import Logout from "../../Logout";
 
 export default function Status() {
   // Creating a custom style for my input
@@ -56,7 +57,7 @@ export default function Status() {
     >
       <Typography
         fontFamily={"Inter"}
-        fontSize={"36px"}
+        fontSize={{ md: "36px", xs: "26px" }}
         color={"#626866"}
         fontWeight={"600"}
       >
@@ -64,6 +65,7 @@ export default function Status() {
       </Typography>
       <Stack direction={"row"} gap={"40px"}>
         <CssTextField
+          sx={{ display: { sm: "block", xs: "none" } }}
           id="input-with-icon-textfield"
           hiddenLabel
           placeholder="Search..."
@@ -82,17 +84,26 @@ export default function Status() {
           direction={"row"}
           gap={"25px"}
         >
-          <StyledBadge badgeContent={1} color="primary">
+          <StyledBadge
+            sx={{ display: { md: "inline-flex", xs: "none" } }}
+            badgeContent={1}
+            color="primary"
+          >
             <FaBell
-              style={{ color: "#4592A2", flexShrink: 0, fontSize: "32px" }}
+              style={{ color: "#4592A2", flexShrink: 1, fontSize: "32px" }}
             />
           </StyledBadge>
-          <StyledBadge badgeContent={3} color="primary">
+          <StyledBadge
+            sx={{ display: { md: "inline-flex", xs: "none" } }}
+            badgeContent={3}
+            color="primary"
+          >
             <FaEnvelope
-              style={{ color: "#4592A2", flexShrink: 0, fontSize: "32px" }}
+              style={{ color: "#4592A2", flexShrink: 1, fontSize: "32px" }}
             />
           </StyledBadge>
           <Avatar alt="Remy Sharp" src={profileImage} />
+          <Logout />
         </Stack>
       </Stack>
     </Box>
