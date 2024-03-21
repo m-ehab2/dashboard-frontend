@@ -10,11 +10,10 @@ export default function Hero() {
         borderRadius: "10px ",
         boxShadow: "2px 2px 4px 0px rgba(0,0,0,0.25)",
         display: "flex",
+        flexDirection: { md: "row", xs: "column-reverse" },
       }}
     >
-      <Box
-      // sx={{ display: "flex", flexDirection: "column", alignItems: "start" }}
-      >
+      <Box>
         <Typography
           fontFamily={"Inter"}
           fontSize={"40px"}
@@ -67,7 +66,7 @@ export default function Hero() {
         sx={{
           height: "200px",
           overflow: "hidden",
-          width: "60%",
+          width: { md: "60%", xs: "100" },
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
