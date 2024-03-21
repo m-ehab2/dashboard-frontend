@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { Stack, Typography } from "@mui/material";
 
 export interface SliderItemProps {
@@ -15,7 +15,7 @@ export default function SliderItem({ icon, text }: SliderItemProps) {
       gap="20px"
       sx={{
         backgroundColor: "transparent",
-        padding: "0px 30px",
+        padding: "0px 5%",
         color: "white",
         height: "70px",
         cursor: "pointer",
